@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>University Benchmark & Database</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation" aria-label="Main navigation">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand d-flex align-items-center" aria-label="The Social Network Home">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuUfwj92y3vFLR_W5hFezQzBCyOdFMveUmOw&s" alt="Logo" class="me-2 logo-img" />
+                <span class="logo-text">The Social Network</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" id="nav-home" class="nav-link active" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="nav-university-list" class="nav-link">University List</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-5 text-center text-light" role="main" aria-live="polite" aria-atomic="true">
+        <section id="home-page" class="position-relative" style="min-height: 70vh;">
+            <!-- Large transparent tinted header text with image masking -->
+            <h1 class="header-glow display-1 fw-bold text-uppercase" aria-label="The Social Network">
+                The Social Network
+            </h1>
+            <div class="d-flex justify-content-center align-items-center position-absolute top-65 start-50 translate-middle-x" style="width: 100%;">
+                <button class="btn btn-lg btn-light btn-lift shadow-lg" id="btn-assessment" aria-label="Take University Assessment">Take an Assessment</button>
+            </div>
+        </section>
+
+        <section id="university-list-page" class="d-none" aria-label="University List">
+            <h2>University List</h2>
+            <div id="university-list" role="list" aria-live="polite" aria-relevant="additions">
+                <!-- Universities will be populated here by JS -->
+            </div>
+        </section>
+
+        <section id="assessment-page" class="d-none" aria-label="University Assessment Form">
+            <h2>University Assessment</h2>
+            <form id="assessment-form">
+                <div class="mb-3">
+                    <label for="gpa" class="form-label">What is your GPA? (0.0 - 4.0)</label>
+                    <input type="number" step="0.01" min="0.0" max="4.0" class="form-control" id="gpa" required aria-required="true" />
+                </div>
+                <div class="mb-3">
+                    <label for="financialCapacity" class="form-label">Financial Capacity</label>
+                    <select class="form-select" id="financialCapacity" required aria-required="true">
+                        <option value="" disabled selected>Select your financial capacity</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Find Universities</button>
+                <button type="button" class="btn btn-secondary ms-2" id="btn-back">Back</button>
+            </form>
+            <div class="mt-4" id="assessment-results" aria-live="polite" aria-atomic="true"></div>
+        </section>
+    </main>
+
+    <!-- University Modal -->
+    <div
+      class="modal fade"
+      id="universityModal"
+      tabindex="-1"
+      aria-labelledby="universityModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="universityModalLabel">University Name</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"   
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="universityModalBody">
+            <!-- Details will be populated here -->
+          </div>
+          <div class="modal-footer">
+            <a href="#" target="_blank" id="university-link" class="btn btn-primary">Visit Website</a>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper for JS and modal support -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

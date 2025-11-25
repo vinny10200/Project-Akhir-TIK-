@@ -1,0 +1,175 @@
+/* Dark prestigious theme */
+body {
+    background-color: #121212;
+    color: #f0e68c; /* light golden */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar adjustments */
+.navbar {
+    box-shadow: 0 0 10px 2px rgba(240, 230, 140, 0.7);
+}
+
+.glowing-logo .logo-text {
+    font-size: 1.1rem;
+    color: #f0e68c;
+    text-shadow:
+        0 0 5px #f0e68c,
+        0 0 10px #f0e68c,
+        0 0 20px #daa520,
+        0 0 30px #daa520,
+        0 0 40px #ffd700;
+    font-weight: 600;
+}
+
+/* Large header with transparent text and yellowish tint using text masking */
+.header-glow {
+    font-weight: 1200;
+    color: transparent;
+    background-image: url('https://uniplusglobal.com/media/university_images/New_York_University_439e3d1807.webp'), 
+                      url('https://www.sist.tsinghua.edu.cn/sisten/img/banner2_dltfs1920740.jpg'),
+                      url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMkCnobgRcVHUv6lORTXm8Obnug2LiPVirwg&s'),
+                      url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJh5wgamIC9UjqdqCr-iP0pjrR4tEv64mM6g&s'),
+                      url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR24MlyjE1WIRVKFE59_SAAvO4BmyMAGkaxBw&s'),
+                      url('https://gov-web.s3.ap-northeast-1.amazonaws.com/uploads/2018/04/NUS-ERC.jpg'),
+                      url('https://i.ytimg.com/vi/U6M2b5ZID_c/maxresdefault.jpg'),
+                      url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5ksESW02eScB21j2WhcRSZ5OCVk29SLfFoQ&s'),
+                      url('https://accommodationforstudents.com/cdn-cgi/image/f=auto,q=85,w=960/https://images.accommodationforstudents.com/website/university-guides/au/monash-university/uni.jpg'),
+                      url('https://universityreviews.com.au/students/wp-content/uploads/2015/10/University-of-Sydney-campus.jpg');
+    background-size: 100% 100%;
+    background-position: 
+        0% 50%,
+        10% 20%,
+        25% 45%,
+        40% 25%,
+        55% 45%,
+        70% 30%,
+        85% 55%,
+        90% 20%,
+        95% 45%,
+        100% 25%;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(0 0 10px #ffee00);
+    user-select: none;
+    position: relative;
+    z-index: 1;
+}
+
+/* Button lift-up animation */
+.btn-lift {
+    background-color: #d4af37;
+    color: #121212;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+.btn-lift:hover, .btn-lift:focus {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(212, 175, 55, 0.6);
+    color: #121212;
+    text-decoration: none;
+}
+
+/* University List diagonal layout */
+#university-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+/* University card in list */
+.university-card {
+    position: relative;
+    width: 280px;
+    background-color: #181818cc; /* semi-transparent dark bg */
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+    color: #f0e68c;
+    cursor: pointer;
+    transform: rotate(-10deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+}
+
+.university-card:nth-child(even) {
+    transform: rotate(8deg);
+}
+
+.university-card:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 0 20px #ffd700;
+}
+
+/* Border color by acceptance rate */
+.border-red {
+    border: 2px solid #ff4c4c;
+}
+
+.border-yellow {
+    border: 2px solid #f0e68c;
+}
+
+.border-green {
+    border: 2px solid #4caf50;
+}
+
+/* University Image */
+.university-image {
+    width: 100%;
+    height: 140px;
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+}
+
+/* University info */
+.uni-info {
+    text-align: center;
+    margin-top: 0.25rem;
+}
+
+.uni-info .city, .uni-info .acceptance-rate {
+    margin: 0.25rem 0;
+}
+
+/* Modal enhancements with black gray transparent background */
+.modal-content {
+    background-color: rgba(18, 18, 18, 0.95);
+    border-radius: 14px;
+    color: #f0e68c;
+}
+
+/* Chart container */
+.chart-container {
+    width: 100%;
+    max-width: 480px;
+    margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #university-list {
+        justify-content: center;
+    }
+    .university-card {
+        width: 90%;
+        transform: rotate(0deg);
+        margin-bottom: 2rem;
+    }
+    .university-card:nth-child(even) {
+        transform: rotate(0deg);
+    }
+}
