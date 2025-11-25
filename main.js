@@ -1,5 +1,3 @@
-// University Data
-// University Data
 const universities = [
     {
         name: "NYU",
@@ -163,16 +161,15 @@ const universities = [
     }
 ];
 
-// Chart creation function using Chart.js
 function createCostChart(canvasId, costBreakdown) {
     const ctx = document.getElementById(canvasId).getContext('2d');
     const labels = Object.keys(costBreakdown);
     const data = Object.values(costBreakdown);
     const colors = [
-        '#FFD700', // Tuition - Gold
-        '#DAA520', // Housing - Goldenrod
-        '#B8860B', // Food - DarkGoldenRod
-        '#808000'  // Misc - Olive
+        '#FFD700', 
+        '#DAA520', 
+        '#B8860B', 
+        '#808000'  
     ];
 
     if(window.costChartInstance) {
@@ -195,7 +192,7 @@ function createCostChart(canvasId, costBreakdown) {
                 legend: {
                     position: 'bottom',
                     labels: {
-                        color: '#f0e68c' // light golden labels
+                        color: '#f0e68c' 
                     }
                 },
                 tooltip: {
@@ -211,7 +208,6 @@ function createCostChart(canvasId, costBreakdown) {
     return window.costChartInstance;
 }
 
-// Elements references
 const navHome = document.getElementById('nav-home');
 const navUniversityList = document.getElementById('nav-university-list');
 const homePage = document.getElementById('home-page');
@@ -219,7 +215,7 @@ const universityListPage = document.getElementById('university-list-page');
 const assessmentPage = document.getElementById('assessment-page');
 const universityListDiv = document.getElementById('university-list');
 const btnAssessment = document.getElementById('btn-assessment');
-const btnUniversityList = null; // Element does not exist in HTML, avoid error
+const btnUniversityList = null; 
 const assessmentForm = document.getElementById('assessment-form');
 const assessmentResults = document.getElementById('assessment-results');
 const btnBack = document.getElementById('btn-back');
@@ -228,7 +224,6 @@ const universityModalLabel = document.getElementById('universityModalLabel');
 const universityModalBody = document.getElementById('universityModalBody');
 const universityLink = document.getElementById('university-link');
 
-// Show a specific page and update nav active state
 function showPage(pageId) {
     homePage.classList.add('d-none');
     universityListPage.classList.add('d-none');
@@ -252,7 +247,6 @@ function showPage(pageId) {
     }
 }
 
-// Map acceptance rate string to border class
 function borderColorClass(acceptanceRateStr) {
     const rateNum = parseFloat(acceptanceRateStr);
     if (rateNum < 15) return 'border-red';
@@ -260,7 +254,6 @@ function borderColorClass(acceptanceRateStr) {
     return 'border-green';
 }
 
-// Populate universities list with diagonal card layout including image, city and acceptance rate with border colors
 function populateUniversityList() {
     universityListDiv.innerHTML = '';
     universities.forEach((uni, index) => {
@@ -271,13 +264,11 @@ function populateUniversityList() {
         card.setAttribute('aria-pressed', 'false');
         card.setAttribute('aria-label', `${uni.name}, located in ${uni.city}, acceptance rate ${uni.acceptanceRate}`);
 
-        // University image
         const imgDiv = document.createElement('div');
         imgDiv.className = 'university-image';
         imgDiv.style.backgroundImage = `url('${uni.image}')`;
         card.appendChild(imgDiv);
 
-        // University info
         const infoDiv = document.createElement('div');
         infoDiv.className = 'uni-info';
         infoDiv.innerHTML = `<h5>${uni.name}</h5><p class="city">${uni.city}</p><p class="acceptance-rate">Acceptance Rate: ${uni.acceptanceRate}</p>`;
@@ -297,7 +288,6 @@ function populateUniversityList() {
     });
 }
 
-// Show university details modal with campus images and cost breakdown chart
 function showUniversityModal(index) {
     const uni = universities[index];
     universityModalLabel.textContent = uni.name;
@@ -320,7 +310,6 @@ function showUniversityModal(index) {
     universityLink.href = uni.website;
     universityModal.show();
 
-    // Delay chart creation to ensure canvas is in DOM
     setTimeout(() => {
         if(window.costChartInstance) {
             window.costChartInstance.destroy();
@@ -330,9 +319,7 @@ function showUniversityModal(index) {
 }
 
 
-// Assessment logic to filter universities based on GPA and financial capacity
 function assessUniversities(gpa, financialCapacity) {
-    // convert financialCapacity to a numeric level for comparison
     const financialLevelMap = { low: 1, medium: 2, high: 3 };
     const studentFinancialLevel = financialLevelMap[financialCapacity] || 1;
 
@@ -340,13 +327,11 @@ function assessUniversities(gpa, financialCapacity) {
         let gpaPass = false;
         let financialPass = false;
 
-        // Example GPA filter (mock)
         if (gpa >= 3.7) gpaPass = true;
-        else if (gpa >= 3.0) gpaPass = uni.acceptanceRate.replace('%','') * 1 > 30; // easier acceptance for lower GPA
+        else if (gpa >= 3.0) gpaPass = uni.acceptanceRate.replace('%','') * 1 > 30; 
         else gpaPass = false;
 
-        // Example financial filter (mock)
-        let uniPriceLevel = 1; // low price
+        let uniPriceLevel = 1; 
         const priceIntl = uni.priceInternational.toString().toLowerCase();
 
         if (priceIntl.includes('usd') || priceIntl.includes('$') || priceIntl.includes('aud') || priceIntl.includes('sgd'))
@@ -360,7 +345,6 @@ function assessUniversities(gpa, financialCapacity) {
     });
 }
 
-// Event listeners
 navHome.addEventListener('click', (e) => {
     e.preventDefault();
     console.log('Nav Home clicked');
@@ -413,7 +397,6 @@ assessmentForm.addEventListener('submit', (e) => {
         return;
     }
 
-    // Display results as plain text list items only
     const resultList = document.createElement('ul');
     resultList.className = 'list-group';
     results.forEach((uni) => {
@@ -424,17 +407,15 @@ assessmentForm.addEventListener('submit', (e) => {
     });
 
     assessmentResults.appendChild(resultList);
-    // Ensure the assessment page is shown to display results
     showPage('assessment');
 });
 
-// Initial setup on page load
 document.addEventListener('DOMContentLoaded', () => {
     populateUniversityList();
     showPage('home');
 
-    // Add simple fade-in animation for main container
     const container = document.querySelector('.container');
     container.classList.add('opacity-0');
     setTimeout(() => container.classList.remove('opacity-0'), 100);
 });
+
