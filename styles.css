@@ -1,11 +1,9 @@
-/* Dark prestigious theme */
 body {
     background-color: #121212;
-    color: #f0e68c; /* light golden */
+    color: #f0e68c;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Navbar adjustments */
 .navbar {
     box-shadow: 0 0 10px 2px rgba(240, 230, 140, 0.7);
 }
@@ -22,7 +20,6 @@ body {
     font-weight: 600;
 }
 
-/* Large header with transparent text and yellowish tint using text masking */
 .header-glow {
     font-weight: 1200;
     color: transparent;
@@ -57,7 +54,6 @@ body {
     z-index: 1;
 }
 
-/* Button lift-up animation */
 .btn-lift {
     background-color: #d4af37;
     color: #121212;
@@ -75,7 +71,6 @@ body {
     text-decoration: none;
 }
 
-/* University List diagonal layout */
 #university-list {
     display: flex;
     flex-wrap: wrap;
@@ -84,11 +79,10 @@ body {
     padding: 1rem 0;
 }
 
-/* University card in list */
 .university-card {
     position: relative;
     width: 280px;
-    background-color: #181818cc; /* semi-transparent dark bg */
+    background-color: #181818cc; 
     border-radius: 16px;
     padding: 1rem;
     box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
@@ -111,7 +105,6 @@ body {
     box-shadow: 0 0 20px #ffd700;
 }
 
-/* Border color by acceptance rate */
 .border-red {
     border: 2px solid #ff4c4c;
 }
@@ -124,7 +117,6 @@ body {
     border: 2px solid #4caf50;
 }
 
-/* University Image */
 .university-image {
     width: 100%;
     height: 140px;
@@ -135,7 +127,6 @@ body {
     background-position: center;
 }
 
-/* University info */
 .uni-info {
     text-align: center;
     margin-top: 0.25rem;
@@ -145,21 +136,18 @@ body {
     margin: 0.25rem 0;
 }
 
-/* Modal enhancements with black gray transparent background */
 .modal-content {
     background-color: rgba(18, 18, 18, 0.95);
     border-radius: 14px;
     color: #f0e68c;
 }
 
-/* Chart container */
 .chart-container {
     width: 100%;
     max-width: 480px;
     margin-top: 1rem;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     #university-list {
         justify-content: center;
@@ -173,3 +161,4 @@ body {
         transform: rotate(0deg);
     }
 }
+
